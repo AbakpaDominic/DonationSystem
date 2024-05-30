@@ -1,0 +1,4 @@
+locale: "be_BY"
+pattern: "¤#,##0.00"
+decimalSeparator: ","
+groupingSeparator: " "

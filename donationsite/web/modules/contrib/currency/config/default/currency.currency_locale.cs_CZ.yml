@@ -1,0 +1,4 @@
+locale: "cs_CZ"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: " "

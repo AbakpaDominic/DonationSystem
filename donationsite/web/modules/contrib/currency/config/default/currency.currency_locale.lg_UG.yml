@@ -1,0 +1,4 @@
+locale: "lg_UG"
+pattern: "#,##0.00¤"
+decimalSeparator: "."
+groupingSeparator: ""

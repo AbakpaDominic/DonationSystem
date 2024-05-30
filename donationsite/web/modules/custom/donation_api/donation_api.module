@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * @file
+ * Contains \Drupal\donation_api\donation_api.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use symfony\Component\HttpFoundation\JsonResponse;
+use symfony\Component\HttpFoundation\Response;
+
+/**
+ * Implements hook_help().
+ */
+function donation_api_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.donation_api':
+      return '<p>' . t('Provides API integration for donation system.') . '</p>';
+    default:
+      return '';
+  }
+}
+
+
+/**
+ * Callback for the webhook endpoint.
+ */
+function donation_api_webhook_callback() {
+  // Get the request object.
+  $request = \Drupal::request();
+
+  // Get the JSON payload from the request.
+  $payload = $request->getContent();
+
+  // Ensure the payload is not empty.
+  if (!empty($payload)) {
+    try {
+      // Decode the JSON payload.
+      $data = json_decode($payload, TRUE);
+
+      // Check if the data is valid.
+      if (is_array($data) && isset($data['event'])) {
+        // Process the webhook event based on its type.
+        switch ($data['event']) {
+          case 'subscription.create':
+          case 'subscription.charge.success':
+          case 'subscription.charge.failed':
+            // Handle the webhook event using the WebhookController.
+            $controller = \Drupal::service('controller.donation_api_webhook');
+            $response = $controller->handleWebhook($request);
+
+            // Return the response.
+            return $response;
+        }
+      }
+    } catch (Exception $e) {
+      \Drupal::logger('donation_api')->error('Error processing webhook: @error', ['@error' => $e->getMessage()]);
+    }
+  }
+
+  // If the payload is empty or the event is not recognized, return an error response.
+  return new JsonResponse(['error' => 'Invalid webhook request'], Response::HTTP_BAD_REQUEST);
+}
+
+
+
+/**
+ * Implements hook_mail().
+ */
+function donation_api_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'donation_receipt':
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['body'];
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function donation_api_theme() {
+  return [
+    'donation_receipt' => [
+      'variables' => [
+        'message' => NULL,
+      ],
+    ],
+  ];
+}

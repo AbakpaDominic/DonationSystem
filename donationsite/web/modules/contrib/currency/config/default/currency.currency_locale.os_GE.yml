@@ -1,0 +1,4 @@
+locale: "os_GE"
+pattern: "¤ #,##0.00"
+decimalSeparator: ","
+groupingSeparator: " "

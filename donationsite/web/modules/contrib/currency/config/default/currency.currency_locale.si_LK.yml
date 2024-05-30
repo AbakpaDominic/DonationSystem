@@ -1,0 +1,4 @@
+locale: "si_LK"
+pattern: "¤ #,##,##0.00"
+decimalSeparator: "."
+groupingSeparator: ""

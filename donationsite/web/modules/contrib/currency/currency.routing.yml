@@ -1,0 +1,136 @@
+# Currency exchangers.
+currency.exchange_rate_provider.config:
+  path: '/admin/config/regional/currency-exchange'
+  defaults:
+    _form: '\Drupal\currency\Form\PluginBasedExchangeRateProviderForm'
+    _title: Currency exchange
+  requirements:
+    _permission: 'currency.exchange_rate_provider.administer'
+
+currency.exchange_rate_provider.fixed_rates.overview:
+  path: '/admin/config/regional/currency-exchange/fixed'
+  defaults:
+    _controller: '\Drupal\currency\Controller\FixedRatesOverview::overview'
+    _title: Fixed rates
+  requirements:
+    _permission: 'currency.exchange_rate_provider.fixed_rates.administer'
+
+currency.exchange_rate_provider.fixed_rates.add:
+  path: '/admin/config/regional/currency-exchange/fixed/add'
+  defaults:
+    _form: '\Drupal\currency\Form\FixedRatesForm'
+    _title: 'Add an exchange rate'
+  requirements:
+    _permission: 'currency.exchange_rate_provider.fixed_rates.administer'
+
+currency.exchange_rate_provider.fixed_rates.edit:
+  path: '/admin/config/regional/currency-exchange/fixed/{currency_code_from}/{currency_code_to}'
+  defaults:
+    _form: '\Drupal\currency\Form\FixedRatesForm'
+    _title: 'Edit an exchange rate'
+  requirements:
+    _permission: 'currency.exchange_rate_provider.fixed_rates.administer'
+
+# Currency entities.
+entity.currency.collection:
+  path: '/admin/config/regional/currency'
+  defaults:
+    _entity_list: 'currency'
+    entity_type: 'currency'
+    _title: Currencies
+  requirements:
+    _permission: 'currency.currency.view'
+
+currency.currency.add:
+  path: '/admin/config/regional/currency/add'
+  defaults:
+    _controller: '\Drupal\currency\Controller\AddCurrency::execute'
+    _title: Add a currency
+  requirements:
+    _entity_create_access: 'currency'
+
+currency.currency.import:
+  path: '/admin/config/regional/currency/import'
+  defaults:
+    _form: '\Drupal\currency\Form\CurrencyImportForm'
+    _title: Import a currency
+  requirements:
+    _entity_create_access: 'currency'
+
+entity.currency.edit_form:
+  path: '/admin/config/regional/currency/{currency}'
+  defaults:
+    _entity_form: 'currency.default'
+    _title_callback: \Drupal\currency\Controller\EditCurrency::title
+  requirements:
+    _entity_access: 'currency.update'
+
+entity.currency.delete_form:
+  path: '/admin/config/regional/currency/{currency}/delete'
+  defaults:
+    _entity_form: 'currency.delete'
+  requirements:
+    _entity_access: 'currency.delete'
+
+entity.currency.enable:
+  path: '/admin/config/regional/currency/{currency}/enable'
+  defaults:
+    _controller: '\Drupal\currency\Controller\EnableCurrency::execute'
+  requirements:
+    _entity_access: 'currency.enable'
+
+entity.currency.disable:
+  path: '/admin/config/regional/currency/{currency}/disable'
+  defaults:
+    _controller: '\Drupal\currency\Controller\DisableCurrency::execute'
+  requirements:
+    _entity_access: 'currency.disable'
+
+# Currency currency locale entities.
+entity.currency_locale.collection:
+  path: '/admin/config/regional/currency-formatting/locale'
+  defaults:
+    _entity_list: 'currency_locale'
+    _title: Currency locales
+  requirements:
+    _permission: 'currency.currency_locale.view'
+
+currency.currency_locale.add:
+  path: '/admin/config/regional/currency-formatting/locale/add'
+  defaults:
+    _controller: '\Drupal\currency\Controller\AddCurrencyLocale::execute'
+    _title: Add a currency locale
+  requirements:
+    _entity_create_access: 'currency_locale'
+
+currency.currency_locale.import:
+  path: '/admin/config/regional/currency-formatting/locale/import'
+  defaults:
+    _form: '\Drupal\currency\Form\CurrencyLocaleImportForm'
+    _title: Import a currency locale
+  requirements:
+    _entity_create_access: 'currency_locale'
+
+entity.currency_locale.edit_form:
+  path: '/admin/config/regional/currency-formatting/locale/{currency_locale}'
+  defaults:
+    _entity_form: 'currency_locale.default'
+    _title_callback: \Drupal\currency\Controller\EditCurrencyLocale::title
+  requirements:
+    _entity_access: 'currency_locale.update'
+
+entity.currency_locale.delete_form:
+  path: '/admin/config/regional/currency-formatting/locale/{currency_locale}/delete'
+  defaults:
+    _entity_form: 'currency_locale.delete'
+  requirements:
+    _entity_access: 'currency_locale.delete'
+
+# Currency amount formatting.
+currency.amount_formatting:
+  path: '/admin/config/regional/currency-formatting'
+  defaults:
+    _form: '\Drupal\currency\Form\AmountFormattingForm'
+    _title: Currency amount formatting
+  requirements:
+    _permission: 'currency.amount_formatting.administer'

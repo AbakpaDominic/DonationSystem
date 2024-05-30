@@ -1,0 +1,24 @@
+currency.amount_formatting.administer:
+  title: Administer amount formatting
+currency.exchange_rate_provider.administer:
+  title: Administer currency exchange rate providers
+currency.exchange_rate_provider.fixed_rates.administer:
+  title: Administer fixed exchange rates
+currency.currency.view:
+  title: View currencies
+currency.currency.create:
+  title: Add new currencies
+currency.currency.update:
+  title: Edit currencies
+currency.currency.delete:
+  title: Delete currencies
+currency.currency_locale.view:
+  title: View currency locales
+currency.currency_locale.create:
+  restrict access: true
+  title: Add new currency locales
+currency.currency_locale.update:
+  restrict access: true
+  title: Edit currency locales
+currency.currency_locale.delete:
+  title: Delete currency locales

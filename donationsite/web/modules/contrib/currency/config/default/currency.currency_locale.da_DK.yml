@@ -1,0 +1,4 @@
+locale: "da_DK"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: "."

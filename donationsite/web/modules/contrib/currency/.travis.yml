@@ -1,0 +1,63 @@
+notifications:
+  email: bart@mynameisbart.com
+
+language: php
+
+sudo: false
+
+php:
+  - 5.5
+  - 5.6
+  - 7
+  - hhvm
+
+addons:
+  hosts:
+    - local.dev
+
+env:
+  global:
+    - BUILD_DIR=$TRAVIS_BUILD_DIR/../build
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm
+
+mysql:
+  database: drupal
+  encoding: utf8
+
+cache:
+  directories:
+  - $HOME/.composer/cache
+
+before_install:
+  - composer self-update
+  - git config --global github.accesstoken $GITHUB_OAUTH_TOKEN
+
+install:
+  # Build Drupal and add the package under test as a dependency.
+  - cp -R $TRAVIS_BUILD_DIR/travis-ci/build $BUILD_DIR
+  - cd $BUILD_DIR
+  - composer install
+  - mkdir ./web/profiles
+
+  # Install Drupal and Simpletest.
+  - cd $BUILD_DIR/web
+  - /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" ../vendor/bin/drush si --db-url=mysql://root:@localhost:/drupal testing -y
+  - ../vendor/bin/drush en simpletest -y
+
+  # Start a web server.
+  - cd $BUILD_DIR/web
+  - ../vendor/bin/drush runserver 127.0.0.1:8080 &
+
+script:
+  # Run unit and kernel tests.
+  - export SIMPLETEST_DB="mysql://root@127.0.0.1/drupal"
+  - $BUILD_DIR/vendor/bin/phpunit -c $TRAVIS_BUILD_DIR/phpunit.xml.dist --bootstrap $BUILD_DIR/web/core/tests/bootstrap.php --verbose --debug
+
+  # Run web tests and legacy kernel tests.
+  - cd $BUILD_DIR/web
+  - php ./core/scripts/run-tests.sh --url http://local.dev:8080 --php $(which php) --verbose --color --types "Simpletest" --module currency
+  - php ./core/scripts/run-tests.sh --url http://local.dev:8080 --php $(which php) --verbose --color --types "Simpletest" --module currency_intl

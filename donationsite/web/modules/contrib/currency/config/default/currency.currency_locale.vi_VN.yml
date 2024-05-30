@@ -1,0 +1,4 @@
+locale: "vi_VN"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: "."

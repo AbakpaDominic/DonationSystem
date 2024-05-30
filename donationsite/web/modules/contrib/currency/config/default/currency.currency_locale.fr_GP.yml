@@ -1,0 +1,4 @@
+locale: "fr_GP"
+pattern: "#,##0.00 ¤;(#,##0.00 ¤)"
+decimalSeparator: ","
+groupingSeparator: " "

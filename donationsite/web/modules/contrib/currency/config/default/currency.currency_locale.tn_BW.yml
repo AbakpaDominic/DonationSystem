@@ -1,0 +1,4 @@
+locale: "tn_BW"
+pattern: "¤#,##0.00"
+decimalSeparator: ","
+groupingSeparator: " "

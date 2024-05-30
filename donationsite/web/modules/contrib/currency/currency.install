@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains installation, uninstallation, and update functionality.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function currency_requirements($phase) {
+  $requirements = [];
+
+  // Do not use ::class constants, because we do not want to cause autoloading
+  // errors.
+  $classes = [
+    // A class belonging to commercie/currency.
+    '\Commercie\Currency\Currency',
+    // A class belonging to commercie/currency-exchange.
+    '\Commercie\CurrencyExchange\ExchangeRate',
+  ];
+  foreach ($classes as $class) {
+    if (!class_exists($class)) {
+      $requirements['currency_composer'] = [
+        'description' => t('Currency requires Composer dependencies. Read the <a href="@url">documentation</a> on how to install them.', [
+          '@url' => 'https://www.drupal.org/node/2627292',
+        ]),
+        'severity' => REQUIREMENT_ERROR,
+      ];
+      break;
+    }
+  }
+
+  return $requirements;
+}

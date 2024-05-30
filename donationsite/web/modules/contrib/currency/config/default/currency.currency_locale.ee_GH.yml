@@ -1,0 +1,4 @@
+locale: "ee_GH"
+pattern: "¤#,##0.00;(¤#,##0.00)"
+decimalSeparator: ""
+groupingSeparator: ""

@@ -1,0 +1,4 @@
+locale: "ar_BH"
+pattern: "¤ #0.00;¤ #0.00-"
+decimalSeparator: "٫"
+groupingSeparator: "٬"

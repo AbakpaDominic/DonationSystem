@@ -1,0 +1,5 @@
+
+locale: "nl_NL"
+pattern: "¤ #,##0.00;¤ #,##0.00-"
+decimalSeparator: ","
+groupingSeparator: "."

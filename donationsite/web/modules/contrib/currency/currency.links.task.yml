@@ -1,0 +1,9 @@
+currency.amount_formatting:
+  base_route: currency.amount_formatting
+  route_name: currency.amount_formatting
+  title: Formatting
+
+entity.currency_locale.collection:
+  base_route: currency.amount_formatting
+  route_name: entity.currency_locale.collection
+  title: Locales

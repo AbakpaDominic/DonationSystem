@@ -1,0 +1,33 @@
+{
+  "name" : "commercie/currency",
+  "license" : "MIT",
+  "authors" : [
+    {
+      "name" : "Bart Feenstra",
+      "email" : "bart@mynameisbart.com",
+      "homepage" : "http://mynameisbart.com",
+      "role" : "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Commercie\\Currency\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Commercie\\Tests\\Currency\\": "tests/src"
+    }
+  },
+  "require" : {
+    "ext-json": "*",
+    "php": "~5.5 || ~7.0 || ~8.0"
+  },
+  "require-dev" : {
+    "justinrainbow/json-schema": "~5.2",
+    "phpunit/phpunit" : "~9.0"
+  },
+  "suggest": {
+    "drupal/currency": "Integrates this package with Drupal."
+  }
+}

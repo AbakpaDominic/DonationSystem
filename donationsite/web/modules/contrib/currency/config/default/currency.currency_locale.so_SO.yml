@@ -1,0 +1,4 @@
+locale: "so_SO"
+pattern: "¤#,##0.00"
+decimalSeparator: "."
+groupingSeparator: ","

@@ -1,0 +1,4 @@
+locale: "xh_ZA"
+pattern: "¤#,##0.00"
+decimalSeparator: ","
+groupingSeparator: " "

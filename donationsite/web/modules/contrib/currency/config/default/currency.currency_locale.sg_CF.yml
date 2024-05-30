@@ -1,0 +1,4 @@
+locale: "sg_CF"
+pattern: "¤#,##0.00;¤-#,##0.00"
+decimalSeparator: ","
+groupingSeparator: "."

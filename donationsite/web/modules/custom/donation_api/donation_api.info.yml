@@ -1,0 +1,12 @@
+name: 'Donation_api'
+type: module
+description: 'An API module for handling donations.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:commerce
+  - drupal:commerce_recurring
+  - drupal:commerce_paystack
+  - drupal:webform
+
+

@@ -1,0 +1,4 @@
+locale: "ar_AE"
+pattern: "¤ #0.00;¤ #0.00-"
+decimalSeparator: "٫"
+groupingSeparator: "٬"

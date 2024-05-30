@@ -1,0 +1,118 @@
+# Currency entities.
+currency.currency.*:
+  label: Currency
+  type: config_entity
+  mapping:
+    alternativeSigns:
+      type: sequence
+      label: Alternative signs
+      sequence:
+        type: string
+        label: Alternative sign
+    currencyCode:
+      label: Currency code
+      type: string
+    currencyNumber:
+      label: Currency number
+      type: string
+    label:
+      label: Label
+      type: label
+    roundingStep:
+      label: Rounding step
+      type: float
+    sign:
+      label: Currency sign
+      type: string
+    subunits:
+      label: Number of subunits
+      type: integer
+    usages:
+      type: sequence
+      label: Usages
+      sequence:
+        type: mapping
+        label: Usage
+        mapping:
+          countryCode:
+            label: Country code
+            type: string
+          start:
+            label: Start date
+            type: string
+          end:
+            label: End date
+            type: string
+
+# Currency locale entities.
+currency.currency_locale.*:
+  label: Currency locale
+  type: config_entity
+  mapping:
+    decimalSeparator:
+      label: Decimal separator
+      type: string
+    groupingSeparator:
+      label: Grouping separator
+      type: string
+    locale:
+      label: Locale
+      type: string
+    pattern:
+      label: Unicode CLDR number pattern
+      type: string
+
+currency.amount_formatting:
+  label: Currency amount formatting
+  type: config_object
+  mapping:
+    plugin_id:
+      label: Plugin ID
+      type: string
+
+currency.exchange_rate_provider:
+  label: Currency exchange rate provider
+  type: config_object
+  mapping:
+    plugins:
+      type: sequence
+      sequence:
+        type: mapping
+        label: Plugin
+        mapping:
+          plugin_id:
+            label: Plugin ID
+            type: string
+          status:
+            label: Status
+            type: boolean
+
+# Fixed exchange rates for the "Fixed rates" currency exchange rate provider
+# plugin. Note that this is not plugin configuration.
+currency.exchanger.fixed_rates:
+  label: Fixed currency exchange rates
+  type: config_object
+  mapping:
+    rates:
+      type: sequence
+      sequence:
+        type: mapping
+        label: Plugin
+        mapping:
+          currency_code_from:
+            label: Source currency code
+            type: string
+          currency_code_to:
+            label: Destination currency code
+            type: string
+          rate:
+            label: Exchange rate
+            type: string
+
+# The fallback schema for exchange rate provider plugins.
+plugin.plugin_configuration.currency_exchange_rate_provider.*:
+  type: ignore
+
+# The fallback schema for amount formatter plugins.
+plugin.plugin_configuration.currency_amount_formatter.*:
+  type: ignore

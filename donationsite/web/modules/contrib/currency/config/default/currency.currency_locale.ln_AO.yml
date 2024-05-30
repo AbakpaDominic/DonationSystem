@@ -1,0 +1,4 @@
+locale: "ln_AO"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: "."

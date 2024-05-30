@@ -1,0 +1,119 @@
+<?php
+
+/**
+ * @file
+ * Contains \Drupal\donation_api\donation_api.install.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function donation_api_install() {
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function donation_api_uninstall() {
+  \Drupal::database()->schema()->dropTable('donation_api_donations');
+}
+
+/**
+ * Implements hook_schema().
+ */
+function donation_api_schema() {
+  $schema = [];
+
+  // Define the schema for the donations table.
+  $schema['donation_api_donations'] = [
+    'description' => 'Stores donation records.',
+    'fields' => [
+      'id' => [
+        'description' => 'Primary key: Unique donation ID.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'user_id' => [
+        'description' => 'The user ID of the donor, if registered.',
+        'type' => 'int',
+        'not null' => FALSE,
+      ],
+      'email' => [
+        'description' => 'Email address of the donor.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'amount' => [
+        'description' => 'Amount donated.',
+        'type' => 'float',
+        'not null' => TRUE,
+      ],
+      'currency' => [
+        'description' => 'Currency of the donation.',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+      ],
+      'frequency' => [
+        'description' => 'Frequency of the donation (one_time, monthly, quarterly, yearly).',
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+      ],
+      'next_donation_date' => [
+        'description' => 'Next donation date for recurring donations.',
+        'type' => 'int',
+        'not null' => FALSE,
+      ],
+      'created' => [
+        'description' => 'Timestamp when the donation was made.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'user_id' => ['user_id'],
+      'email' => ['email'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function donation_api_update_8001() {
+  // Example update function.
+  // Adding a new column 'status' to the 'donation_api_donations' table.
+  if (!\Drupal::database()->schema()->fieldExists('donation_api_donations', 'status')) {
+    \Drupal::database()->schema()->addField('donation_api_donations', 'status', [
+      'description' => 'Status of the donation (e.g., pending, completed, failed).',
+      'type' => 'varchar',
+      'length' => 20,
+      'not null' => TRUE,
+      'default' => 'completed',
+    ]);
+  }
+}
+
+/**
+ * Adds a new column to the c table.
+ */
+function donation_api_add_column() {
+  \Drupal::database()->schema()->addField('donation_api_donations', 'new_column', [
+    'description' => 'Description of the new column.',
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => FALSE,
+  ]);
+}
+
+/**
+ * Removes a column from the table.
+ */
+function donation_api_remove_column() {
+  \Drupal::database()->schema()->dropField('donation_api_donations', 'new_column');
+}

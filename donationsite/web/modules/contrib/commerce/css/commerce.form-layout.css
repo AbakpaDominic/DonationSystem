@@ -1,0 +1,74 @@
+/**
+ * Commerce form layouts.
+ */
+
+:root {
+  --commerce--layout-sidebar-width: 22.5rem;
+  --commerce--layout-content-max-width: 52rem;
+}
+
+.layout-region {
+  box-sizing: border-box;
+}
+
+.layout-region--commerce-footer .layout-region__content {
+  margin-top: 1.5rem;
+}
+
+/**
+ * Wide screens
+ */
+
+@media screen and (min-width: 61rem) {
+  .layout-region--commerce-main,
+  .layout-region--commerce-footer {
+    float: left; /* LTR */
+    width: calc(100% - var(--commerce--layout-sidebar-width));
+    padding-right: 1.5rem; /* LTR */
+  }
+  [dir="rtl"] .layout-region--commerce-main,
+  [dir="rtl"] .layout-region--commerce-footer {
+    float: right;
+    padding-right: 0;
+    padding-left: 1.5rem;
+  }
+
+  .layout-region--commerce-main .layout-region__content,
+  .layout-region--commerce-footer .layout-region__content {
+    max-width: var(--commerce--layout-content-max-width);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .layout-region--commerce-footer .layout-region__content {
+    margin-top: 0.5rem;
+  }
+
+  .layout-region--commerce-secondary {
+    float: right; /* LTR */
+    width: var(--commerce--layout-sidebar-width);
+  }
+  [dir="rtl"] .layout-region--commerce-secondary {
+    float: left;
+  }
+
+  /* Push sidebar down to horizontal align with form section */
+  .layout-region--commerce-secondary {
+    margin-top: 1.5rem;
+  }
+}
+
+/**
+ * Extra Wide screens
+ */
+
+@media screen and (min-width: 112rem) {
+  .layout-region--commerce-main,
+  .layout-region--commerce-footer {
+    width: calc(100% - 25vw);
+  }
+
+  .layout-region--commerce-secondary {
+    width: 25vw;
+  }
+}

@@ -1,0 +1,10 @@
+alternativeSigns: {  }
+exchangeRates: {  }
+currencyCode: XXX
+currencyNumber: '999'
+sign: ¤
+subunits: 0
+label: 'No currency'
+usages:
+    - { start: '', end: '', countryCode: AQ }
+    - { start: '', end: '', countryCode: ZZ }

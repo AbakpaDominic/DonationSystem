@@ -1,0 +1,4 @@
+locale: "af_NA"
+pattern: "¤ #,##0.00"
+decimalSeparator: ""
+groupingSeparator: ""

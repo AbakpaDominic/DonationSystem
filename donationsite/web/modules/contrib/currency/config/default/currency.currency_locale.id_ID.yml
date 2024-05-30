@@ -1,0 +1,4 @@
+locale: "id_ID"
+pattern: "¤#,##0.00"
+decimalSeparator: ","
+groupingSeparator: "."

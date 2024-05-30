@@ -1,0 +1,4 @@
+locale: "dz_BT"
+pattern: "¤#,##,##0.00"
+decimalSeparator: "."
+groupingSeparator: ","

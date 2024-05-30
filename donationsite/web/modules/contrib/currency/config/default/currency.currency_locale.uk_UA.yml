@@ -1,0 +1,4 @@
+locale: "uk_UA"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: " "

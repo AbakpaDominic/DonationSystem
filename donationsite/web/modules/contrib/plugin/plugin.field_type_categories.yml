@@ -1,0 +1,3 @@
+plugin_reference:
+  label: 'Plugin reference'
+  description: 'Field to reference a plugin.'

@@ -1,0 +1,11 @@
+element.currency_amount:
+  version: VERSION
+  css:
+    component:
+      css/currency.css: {}
+
+element.currency_sign:
+  version: VERSION
+  css:
+    component:
+      css/currency.css: {}

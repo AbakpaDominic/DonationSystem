@@ -1,0 +1,18 @@
+views.field.currency_amount:
+  type: views_field
+  label: 'Currency amount'
+  mapping:
+    currency_round:
+      label: Round amounts
+      type: boolean
+
+views.filter.currency:
+  type: views_filter
+  label: 'Currency'
+  mapping:
+    value:
+      label: Currencies
+      sequence:
+        - type: string
+          label: Currency code
+      type: sequence

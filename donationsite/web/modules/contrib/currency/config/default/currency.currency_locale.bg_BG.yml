@@ -1,0 +1,4 @@
+locale: "bg_BG"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: " "

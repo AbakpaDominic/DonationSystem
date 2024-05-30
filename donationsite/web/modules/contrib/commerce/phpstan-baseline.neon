@@ -1,0 +1,403 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/cart/src/Plugin/Block/CartBlock.php
+
+		-
+			message: "#^@covers value \\\\Drupal\\\\commerce_cart\\\\CartProvider\\:\\:finalizeCart\\(\\) references an invalid method\\.$#"
+			count: 1
+			path: modules/cart/tests/src/Kernel/CartOrderPlacedTest.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/checkout/src/CheckoutPaneManager.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_checkout\\\\Entity\\\\CheckoutFlow\\:\\:set\\(\\) should return \\$this\\(Drupal\\\\commerce_checkout\\\\Entity\\\\CheckoutFlow\\) but return statement is missing\\.$#"
+			count: 1
+			path: modules/checkout/src/Entity/CheckoutFlow.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_checkout\\\\Form\\\\CheckoutFlowForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/checkout/src/Form/CheckoutFlowForm.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/checkout/src/Plugin/Commerce/CheckoutPane/CompletionRegister.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_checkout\\\\Plugin\\\\Commerce\\\\CheckoutPane\\\\CheckoutPaneBase\\:\\:setStepId\\(\\) should return \\$this\\(Drupal\\\\commerce_checkout\\\\Plugin\\\\Commerce\\\\CheckoutPane\\\\CheckoutPaneBase\\) but return statement is missing\\.$#"
+			count: 1
+			path: modules/checkout/src/Plugin/Commerce/CheckoutPane/CheckoutPaneBase.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_checkout\\\\Plugin\\\\Commerce\\\\CheckoutPane\\\\CheckoutPaneBase\\:\\:setWeight\\(\\) should return \\$this\\(Drupal\\\\commerce_checkout\\\\Plugin\\\\Commerce\\\\CheckoutPane\\\\CheckoutPaneBase\\) but return statement is missing\\.$#"
+			count: 1
+			path: modules/checkout/src/Plugin/Commerce/CheckoutPane/CheckoutPaneBase.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 3
+			path: modules/checkout/src/Plugin/Commerce/CheckoutPane/Login.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_checkout\\\\Plugin\\\\Commerce\\\\CheckoutPane\\\\OrderSummary\\:\\:buildConfigurationSummary\\(\\) should return string but return statement is missing\\.$#"
+			count: 1
+			path: modules/checkout/src/Plugin/Commerce/CheckoutPane/OrderSummary.php
+
+		-
+			message: "#^Plugin definitions cannot be altered\\.$#"
+			count: 1
+			path: modules/log/src/LogCategoryManager.php
+
+		-
+			message: "#^Plugin definitions cannot be altered\\.$#"
+			count: 1
+			path: modules/log/src/LogTemplateManager.php
+
+		-
+			message: "#^@covers value \\\\Drupal\\\\commerce_log\\\\Plugin\\\\LogTemplate\\\\LogTemplate\\:\\:getGroup references an invalid method\\.$#"
+			count: 1
+			path: modules/log/tests/src/Unit/LogTemplateTest.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_number_pattern\\\\Entity\\\\NumberPattern\\:\\:set\\(\\) should return \\$this\\(Drupal\\\\commerce_number_pattern\\\\Entity\\\\NumberPattern\\) but return statement is missing\\.$#"
+			count: 1
+			path: modules/number_pattern/src/Entity/NumberPattern.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_number_pattern\\\\Form\\\\NumberPatternForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/number_pattern/src/Form/NumberPatternForm.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/order/src/Adjustment.php
+
+		-
+			message: """
+				#^Parameter \\$checker of method Drupal\\\\commerce_order\\\\AvailabilityManager\\:\\:addLegacyChecker\\(\\) has typehint with deprecated interface Drupal\\\\commerce\\\\AvailabilityCheckerInterface\\:
+				in commerce\\:8\\.x\\-2\\.18 and is removed from commerce\\:3\\.x\\.
+				  Use \\\\Drupal\\\\commerce_order\\\\AvailabilityCheckerInterface instead\\.$#
+			"""
+			count: 1
+			path: modules/order/src/AvailabilityManager.php
+
+		-
+			message: """
+				#^Parameter \\$checker of method Drupal\\\\commerce_order\\\\AvailabilityManagerInterface\\:\\:addLegacyChecker\\(\\) has typehint with deprecated interface Drupal\\\\commerce\\\\AvailabilityCheckerInterface\\:
+				in commerce\\:8\\.x\\-2\\.18 and is removed from commerce\\:3\\.x\\.
+				  Use \\\\Drupal\\\\commerce_order\\\\AvailabilityCheckerInterface instead\\.$#
+			"""
+			count: 1
+			path: modules/order/src/AvailabilityManagerInterface.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_order\\\\Entity\\\\OrderType\\:\\:getNumberPattern\\(\\) should return Drupal\\\\commerce_number_pattern\\\\Entity\\\\NumberPatternInterface but return statement is missing\\.$#"
+			count: 1
+			path: modules/order/src/Entity/OrderType.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/order/src/Form/OrderAddForm.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_order\\\\Form\\\\OrderForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/order/src/Form/OrderForm.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_order\\\\Form\\\\OrderItemTypeForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/order/src/Form/OrderItemTypeForm.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/order/src/Form/OrderReassignForm.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_order\\\\Form\\\\OrderTypeForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/order/src/Form/OrderTypeForm.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_order\\\\Form\\\\ProfileAddressBookForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/order/src/Form/ProfileAddressBookForm.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce_order\\\\Plugin\\\\Field\\\\FieldType\\\\AdjustmentItem\\:\\:\\$value\\.$#"
+			count: 1
+			path: modules/order/src/Plugin/Field/FieldType/AdjustmentItem.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_order\\\\Plugin\\\\Field\\\\FieldType\\\\AdjustmentItemList\\:\\:removeAdjustment\\(\\) should return \\$this\\(Drupal\\\\commerce_order\\\\Plugin\\\\Field\\\\FieldType\\\\AdjustmentItemList\\) but return statement is missing\\.$#"
+			count: 1
+			path: modules/order/src/Plugin/Field/FieldType/AdjustmentItemList.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/order/src/Plugin/Field/FieldWidget/AdjustmentDefaultWidget.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/order/src/Plugin/Validation/Constraint/OrderVersionConstraintValidator.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/payment/src/Controller/PaymentCheckoutController.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_payment\\\\Entity\\\\PaymentGateway\\:\\:set\\(\\) should return \\$this\\(Drupal\\\\commerce_payment\\\\Entity\\\\PaymentGateway\\) but return statement is missing\\.$#"
+			count: 1
+			path: modules/payment/src/Entity/PaymentGateway.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_payment\\\\Form\\\\PaymentGatewayForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/payment/src/Form/PaymentGatewayForm.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_payment\\\\Form\\\\PaymentMethodEditForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/payment/src/Form/PaymentMethodEditForm.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/payment/src/PaymentMethodListBuilder.php
+
+		-
+			message: "#^Class Drupal\\\\commerce_payment\\\\PaymentMethodPermissionProvider extends @internal class Drupal\\\\entity\\\\EntityPermissionProviderBase\\.$#"
+			count: 1
+			path: modules/payment/src/PaymentMethodPermissionProvider.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$entityId of class Drupal\\\\commerce_payment\\\\Plugin\\\\Commerce\\\\PaymentGateway\\\\PaymentGatewayBase\\:
+				in commerce\\:8\\.x\\-2\\.16 and is removed from commerce\\:3\\.x\\.
+				  Use \\$this\\-\\>parentEntity\\-\\>id\\(\\) instead\\.$#
+			"""
+			count: 1
+			path: modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/payment/tests/modules/commerce_payment_test/src/Plugin/Commerce/PaymentGateway/TestOffsite.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_price\\\\Form\\\\CurrencyForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/price/src/Form/CurrencyForm.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce_price\\\\Plugin\\\\Field\\\\FieldType\\\\PriceItem\\:\\:\\$currency_code\\.$#"
+			count: 1
+			path: modules/price/src/Plugin/Field/FieldType/PriceItem.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce_price\\\\Plugin\\\\Field\\\\FieldType\\\\PriceItem\\:\\:\\$number\\.$#"
+			count: 2
+			path: modules/price/src/Plugin/Field/FieldType/PriceItem.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_product\\\\Form\\\\ProductAttributeForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/product/src/Form/ProductAttributeForm.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 3
+			path: modules/product/src/Form/ProductAttributeForm.php
+
+		-
+			message: "#^Class Drupal\\\\commerce_product\\\\Form\\\\ProductAttributeTranslationAddForm extends @internal class Drupal\\\\config_translation\\\\Form\\\\ConfigTranslationAddForm\\.$#"
+			count: 1
+			path: modules/product/src/Form/ProductAttributeTranslationAddForm.php
+
+		-
+			message: "#^Class Drupal\\\\commerce_product\\\\Form\\\\ProductAttributeTranslationEditForm extends @internal class Drupal\\\\config_translation\\\\Form\\\\ConfigTranslationEditForm\\.$#"
+			count: 1
+			path: modules/product/src/Form/ProductAttributeTranslationEditForm.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_product\\\\Form\\\\ProductTypeForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/product/src/Form/ProductTypeForm.php
+
+		-
+			message: "#^Variable \\$types in isset\\(\\) is never defined\\.$#"
+			count: 1
+			path: modules/product/src/Form/ProductTypeForm.php
+
+		-
+			message: "#^Class Drupal\\\\commerce_product\\\\Plugin\\\\Block\\\\VariationFieldBlock extends @internal class Drupal\\\\layout_builder\\\\Plugin\\\\Block\\\\FieldBlock\\.$#"
+			count: 1
+			path: modules/product/src/Plugin/Block/VariationFieldBlock.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/product/src/Plugin/Validation/Constraint/ProductVariationSkuConstraintValidator.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/product/src/ProductTranslationHandler.php
+
+		-
+			message: "#^Variable \\$coupons_id might not be defined\\.$#"
+			count: 1
+			path: modules/promotion/src/Entity/Coupon.php
+
+		-
+			message: "#^Variable \\$coupon in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 1
+			path: modules/promotion/src/Plugin/Commerce/InlineForm/CouponRedemption.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: modules/promotion/src/Plugin/Commerce/PromotionOffer/OrderItemPromotionOfferBase.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_promotion\\\\Plugin\\\\views\\\\area\\\\CouponRedemption\\:\\:render\\(\\) should return array but return statement is missing\\.$#"
+			count: 1
+			path: modules/promotion/src/Plugin/views/area/CouponRedemption.php
+
+		-
+			message: """
+				#^Call to deprecated function system_time_zones\\(\\)\\:
+				in drupal\\:10\\.1\\.0 and is removed from drupal\\:11\\.0\\.0\\. This function
+				  is no longer used in Drupal core\\. Use
+				  \\\\Drupal\\\\Core\\\\Datetime\\\\TimeZoneFormHelper\\:\\:getOptionsList\\(\\) or
+				  \\\\DateTimeZone\\:\\:listIdentifiers\\(\\) instead\\.$#
+			"""
+			count: 1
+			path: modules/store/src/Entity/Store.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_store\\\\Form\\\\StoreForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/store/src/Form/StoreForm.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_store\\\\Form\\\\StoreTypeForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/store/src/Form/StoreTypeForm.php
+
+		-
+			message: "#^Method Drupal\\\\commerce_tax\\\\Form\\\\TaxTypeForm\\:\\:save\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: modules/tax/src/Form/TaxTypeForm.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$entityId of class Drupal\\\\commerce_tax\\\\Plugin\\\\Commerce\\\\TaxType\\\\TaxTypeBase\\:
+				in commerce\\:8\\.x\\-2\\.16 and is removed from commerce\\:3\\.x\\.
+				  Use \\$this\\-\\>parentEntity\\-\\>id\\(\\) instead\\.$#
+			"""
+			count: 1
+			path: modules/tax/src/Plugin/Commerce/TaxType/TaxTypeBase.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce_tax\\\\Plugin\\\\Field\\\\FieldType\\\\TaxNumberItem\\:\\:\\$type\\.$#"
+			count: 2
+			path: modules/tax/src/Plugin/Field/FieldType/TaxNumberItem.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce_tax\\\\Plugin\\\\Field\\\\FieldType\\\\TaxNumberItem\\:\\:\\$value\\.$#"
+			count: 2
+			path: modules/tax/src/Plugin/Field/FieldType/TaxNumberItem.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce_tax\\\\Plugin\\\\Field\\\\FieldType\\\\TaxNumberItem\\:\\:\\$verification_result\\.$#"
+			count: 1
+			path: modules/tax/src/Plugin/Field/FieldType/TaxNumberItem.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce_tax\\\\Plugin\\\\Field\\\\FieldType\\\\TaxNumberItem\\:\\:\\$verification_state\\.$#"
+			count: 2
+			path: modules/tax/src/Plugin/Field/FieldType/TaxNumberItem.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce_tax\\\\Plugin\\\\Field\\\\FieldType\\\\TaxNumberItem\\:\\:\\$verification_timestamp\\.$#"
+			count: 1
+			path: modules/tax/src/Plugin/Field/FieldType/TaxNumberItem.php
+
+		-
+			message: """
+				#^Call to deprecated method at\\(\\) of class PHPUnit\\\\Framework\\\\TestCase\\:
+				https\\://github\\.com/sebastianbergmann/phpunit/issues/4297$#
+			"""
+			count: 2
+			path: modules/tax/tests/src/Kernel/Plugin/Commerce/TaxNumberType/EuropeanUnionVatTest.php
+
+		-
+			message: "#^Trying to mock an undefined method __soapCall\\(\\) on class \\.$#"
+			count: 2
+			path: modules/tax/tests/src/Kernel/Plugin/Commerce/TaxNumberType/EuropeanUnionVatTest.php
+
+		-
+			message: """
+				#^Parameter \\$checker of method Drupal\\\\commerce\\\\AvailabilityManagerInterface\\:\\:addChecker\\(\\) has typehint with deprecated interface Drupal\\\\commerce\\\\AvailabilityCheckerInterface\\:
+				in commerce\\:8\\.x\\-2\\.18 and is removed from commerce\\:3\\.x\\.
+				  Use \\\\Drupal\\\\commerce_order\\\\AvailabilityCheckerInterface instead\\.$#
+			"""
+			count: 1
+			path: src/AvailabilityManagerInterface.php
+
+		-
+			message: """
+				#^Return type of method Drupal\\\\commerce\\\\AvailabilityManagerInterface\\:\\:getCheckers\\(\\) has typehint with deprecated interface Drupal\\\\commerce\\\\AvailabilityCheckerInterface\\:
+				in commerce\\:8\\.x\\-2\\.18 and is removed from commerce\\:3\\.x\\.
+				  Use \\\\Drupal\\\\commerce_order\\\\AvailabilityCheckerInterface instead\\.$#
+			"""
+			count: 1
+			path: src/AvailabilityManagerInterface.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 2
+			path: src/Config/ConfigUpdater.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce\\\\Plugin\\\\Field\\\\FieldType\\\\PluginItem\\:\\:\\$target_plugin_configuration\\.$#"
+			count: 1
+			path: src/Plugin/Field/FieldType/PluginItem.php
+
+		-
+			message: "#^Access to an undefined property Drupal\\\\commerce\\\\Plugin\\\\Field\\\\FieldType\\\\PluginItem\\:\\:\\$target_plugin_id\\.$#"
+			count: 2
+			path: src/Plugin/Field/FieldType/PluginItem.php
+
+		-
+			message: "#^Access to an undefined property \\$this\\(Drupal\\\\commerce\\\\Plugin\\\\Field\\\\FieldType\\\\RemoteIdItem\\)\\:\\:\\$remote_id\\.$#"
+			count: 1
+			path: src/Plugin/Field/FieldType/RemoteIdItem.php
+
+		-
+			message: """
+				#^Instantiation of deprecated class Drupal\\\\commerce\\\\AvailabilityManager\\:
+				in commerce\\:8\\.x\\-2\\.18 and is removed from commerce\\:3\\.x\\.
+				  Use \\\\Drupal\\\\commerce_order\\\\AvailabilityManager instead\\.$#
+			"""
+			count: 1
+			path: tests/src/Unit/AvailabilityManagerTest.php

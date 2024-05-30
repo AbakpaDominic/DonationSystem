@@ -1,0 +1,52 @@
+{
+  "require": {
+    "composer/installers": "~1.0.23",
+    "drupal-composer/drupal-scaffold": "~2.0",
+    "drupal/core": "~8.1",
+    "drupal/currency": "*",
+    "drush/drush": "~8.1 || >= 8.1.2",
+    "phpunit/phpunit": "~4.8"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "web/core": [
+        "type:drupal-core"
+      ],
+      "web/modules/{$name}": [
+        "type:drupal-module"
+      ],
+      "web/profiles/{$name}": [
+        "type:drupal-profile"
+      ],
+      "web/themes/{$name}": [
+        "type:drupal-theme"
+      ]
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../drupal-currency/",
+      "options": {
+        "symlink": true
+      }
+    },
+    {
+      "type": "composer",
+      "url": "https://packagist.drupal-composer.org"
+    }
+  ],
+  "config": {
+    "process-timeout": 0
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+    ],
+    "post-update-cmd": [
+      "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+    ]
+  }
+}

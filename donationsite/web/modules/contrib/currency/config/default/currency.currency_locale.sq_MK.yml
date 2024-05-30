@@ -1,0 +1,4 @@
+locale: "sq_MK"
+pattern: "¤#,##0.00"
+decimalSeparator: ","
+groupingSeparator: " "

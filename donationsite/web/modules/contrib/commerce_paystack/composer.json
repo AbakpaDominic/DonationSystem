@@ -1,0 +1,15 @@
+{
+  "name": "drupal/commerce_paystack",
+  "type": "drupal-module",
+  "description": "Provides Commerce integration for Paystack.",
+  "keywords": ["Drupal", "Commerce", "Paystack"],
+  "homepage": "https://www.drupal.org/project/commerce_paystack",
+  "license": "GPL-2.0+",
+  "require": {
+    "drupal/commerce": "~2.0",
+    "yabacon/paystack-php": "^2.1"
+  },
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/commerce_paystack"
+  }
+}

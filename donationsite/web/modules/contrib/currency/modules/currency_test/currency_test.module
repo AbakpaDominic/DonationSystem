@@ -1,0 +1,91 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations and shared functions.
+ */
+
+/**
+ * Implements hook_views_data().
+ */
+function currency_test_views_data() {
+  // Declaration of the base table.
+  $data['currency_test']['table'] = array(
+    'base' => array(
+      'field' => 'id',
+      'title' => t('Currency test'),
+    ),
+    'group' => t('Currency test'),
+  );
+
+  // Declaration of fields.
+  $data['currency_test']['currency_code'] = array(
+    'field' => array(
+      'id' => 'standard',
+    ),
+    'help' => t('Currency code'),
+    'title' => t('Currency code'),
+  );
+  $data['currency_test']['currency'] = array(
+    'filter' => array(
+      'id' => 'currency',
+      'real field' => 'currency_code',
+    ),
+    'help' => t('Currency'),
+    'title' => t('Currency'),
+  );
+  $data['currency_test']['amount_currency_code_definition'] = array(
+    'field' => array(
+      'id' => 'currency_amount',
+      'currency_code' => 'EUR',
+    ),
+    'help' => t('Amount'),
+    'title' => t('Amount'),
+  );
+  $data['currency_test']['amount_currency_code_field_definition'] = array(
+    'field' => array(
+      'id' => 'currency_amount',
+      'currency_code' => 'UAH',
+      'currency_code_field' => 'currency_code',
+    ),
+    'help' => t('Amount'),
+    'title' => t('Amount'),
+  );
+  $data['currency_test']['amount_currency_code_field_table_definition'] = array(
+    'field' => array(
+      'id' => 'currency_amount',
+      'currency_code' => 'UAH',
+      'currency_code_field' => 'currency_code',
+      'currency_code_table' => 'currency_test',
+    ),
+    'help' => t('Amount'),
+    'title' => t('Amount'),
+  );
+  $data['currency_test']['amount_currency_undefined'] = array(
+    'field' => array(
+      'id' => 'currency_amount',
+    ),
+    'help' => t('Amount'),
+    'title' => t('Amount'),
+  );
+  $data['currency_test']['currency_sign'] = array(
+    'field' => array(
+      'currency_method' => 'getSign',
+      'id' => 'currency',
+    ),
+    'help' => t('Currency Sign'),
+    'title' => t('Currency sign'),
+    'real field' => 'currency_code',
+  );
+  $data['currency_test']['currency_subunits'] = array(
+    'field' => array(
+      'currency_method' => 'getSubunits',
+      'id' => 'currency',
+    ),
+    'help' => t('Number of subunits'),
+    'title' => t('Number of subunits'),
+    'real field' => 'currency_code',
+  );
+
+  return $data;
+}

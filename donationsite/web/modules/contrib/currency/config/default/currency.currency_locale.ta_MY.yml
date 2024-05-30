@@ -1,0 +1,4 @@
+locale: "ta_MY"
+pattern: "¤ #,##0.00"
+decimalSeparator: "."
+groupingSeparator: ""

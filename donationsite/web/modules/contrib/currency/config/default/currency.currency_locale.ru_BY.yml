@@ -1,0 +1,4 @@
+locale: "ru_BY"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: " "

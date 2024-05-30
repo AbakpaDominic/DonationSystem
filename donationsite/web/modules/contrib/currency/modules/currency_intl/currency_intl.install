@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Contains installation, uninstallation, and update functionality.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function currency_intl_requirements($phase) {
+  $loaded = extension_loaded('intl');
+  $requirements['currency_intl_extension_intl'] = array(
+    'description' => t('Intl can be used to format amounts according the locales of users.'),
+    'title' => t('PHP Intl extension'),
+    'value' => $loaded ? t('Loaded') : t('Not loaded'),
+    'severity' => $loaded ? REQUIREMENT_OK : REQUIREMENT_INFO,
+  );
+
+  return $requirements;
+}

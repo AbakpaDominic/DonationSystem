@@ -1,0 +1,22 @@
+{
+  "name": "drupal/currency",
+  "description": "Provides your Drupal site with currency conversion, currency information & metadata, and amount/price display functionality.",
+  "type": "drupal-module",
+  "license": "GPL-2.0",
+  "autoload": {
+    "psr-4": {
+      "Drupal\\currency\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Drupal\\Tests\\currency\\": "tests/src"
+    }
+  },
+  "require" : {
+    "ext-bcmath": "*",
+    "drupal/plugin": "^2.6",
+    "commercie/currency": "~1.0",
+    "commercie/currency-exchange": "~1.0"
+  }
+}

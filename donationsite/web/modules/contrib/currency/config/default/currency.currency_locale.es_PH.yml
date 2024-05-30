@@ -1,0 +1,4 @@
+locale: "es_PH"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: "."

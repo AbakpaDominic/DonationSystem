@@ -1,0 +1,4 @@
+locale: "ga_IE"
+pattern: "¤#,##0.00"
+decimalSeparator: "."
+groupingSeparator: ","

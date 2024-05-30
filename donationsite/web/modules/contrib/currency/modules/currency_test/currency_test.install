@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Installation and uninstallation functionality.
+ */
+function currency_test_schema() {
+  $schema['currency_test'] = array(
+    'fields' => array(
+      'currency_code' => array(
+        'type' => 'varchar',
+        'length' => '3',
+      ),
+    ),
+  );
+  $fields = array('amount_currency_code_field_option', 'amount_currency_code_definition', 'amount_currency_code_field_definition', 'amount_currency_code_field_table_definition', 'amount_currency_undefined');
+  foreach ($fields as $field) {
+    $schema['currency_test']['fields'][$field] = array(
+      'type' => 'varchar',
+      'length' => 255,
+    );
+  }
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function currency_test_install() {
+  $currency_codes = array('EUR', 'NLG', 'USD', '');
+  $amounts = array(
+    'amount_currency_code_definition' => 123.456,
+    'amount_currency_code_field_definition' => 123.456,
+    'amount_currency_code_field_table_definition' => 123.456,
+    'amount_currency_undefined' => 123.456,
+  );
+  foreach ($currency_codes as $currency_code) {
+    \Drupal::database()->insert('currency_test')
+      ->fields(array(
+        'currency_code' => $currency_code,
+      ) + $amounts)
+      ->execute();
+  }
+}

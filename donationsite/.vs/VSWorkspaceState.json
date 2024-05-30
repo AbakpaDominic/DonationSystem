@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\web",
+    "\\web\\modules",
+    "\\web\\modules\\custom",
+    "\\web\\modules\\custom\\donation",
+    "\\web\\modules\\custom\\donation\\src",
+    "\\web\\modules\\custom\\donation\\src\\Service",
+    "\\web\\sites",
+    "\\web\\sites\\default"
+  ],
+  "SelectedNode": "\\web\\modules\\custom\\donation\\donation.services.yml",
+  "PreviewInSolutionExplorer": false
+}

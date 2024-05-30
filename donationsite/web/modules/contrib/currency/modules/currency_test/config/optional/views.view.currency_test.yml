@@ -1,0 +1,108 @@
+base_field: currency_code
+base_table: currency_test
+core: 8.x
+description: ''
+status: true
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: perm
+      cache:
+        type: none
+      query:
+        type: views_query
+      exposed_form:
+        type: basic
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+      style:
+        type: default
+      row:
+        type: fields
+      fields:
+        currency_code:
+          field: currency_code
+          id: currency_code
+          table: currency_test
+          plugin_id: standard
+        amount_currency_code_definition:
+          field: amount_currency_code_definition
+          id: amount_currency_code_definition
+          table: currency_test
+          currency_round: TRUE
+          plugin_id: currency_amount
+        amount_currency_code_field_definition:
+          field: amount_currency_code_field_definition
+          id: amount_currency_code_field_definition
+          table: currency_test
+          plugin_id: currency_amount
+        amount_currency_code_field_table_definition:
+          field: amount_currency_code_field_table_definition
+          id: amount_currency_code_field_table_definition
+          table: currency_test
+          plugin_id: currency_amount
+        amount_currency_undefined:
+          field: amount_currency_undefined
+          id: amount_currency_undefined
+          table: currency_test
+          plugin_id: currency_amount
+        currency_sign:
+          field: currency_sign
+          id: currency_sign
+          table: currency_test
+          plugin_id: currency
+        currency_subunits:
+          field: currency_subunits
+          id: currency_subunits
+          table: currency_test
+          plugin_id: currency
+      filters:
+        currency:
+          id: currency
+          table: currency_test
+          field: currency
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: 'not in'
+          value:
+            NLG: NLG
+          group: 1
+          exposed: false
+          expose:
+            operator_id: '0'
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: currency
+      title: foo
+label: bar
+module: currency_test
+id: currency_test
+tag: ''

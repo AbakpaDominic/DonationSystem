@@ -1,0 +1,4 @@
+locale: "ar_SA"
+pattern: "¤#0.00"
+decimalSeparator: ""
+groupingSeparator: ""

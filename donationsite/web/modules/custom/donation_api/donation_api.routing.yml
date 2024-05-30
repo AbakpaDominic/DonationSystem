@@ -1,0 +1,18 @@
+donation_api.webhook_callback:
+  path: '/api/v1/webhook'
+  defaults:
+    _controller: '\Drupal\donation_api\Controller\WebhookController::handleWebhook'
+    _title: 'Handle Webhook'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
+
+donation_api.donate:
+  path: '/api/v1/donate'
+  defaults:
+    _controller: '\Drupal\donation_api\Controller\DonationController::handleDonations'
+    _title: 'Handle Donations'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
+

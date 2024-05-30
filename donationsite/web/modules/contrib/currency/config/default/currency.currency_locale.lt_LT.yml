@@ -1,0 +1,4 @@
+locale: "lt_LT"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: " "

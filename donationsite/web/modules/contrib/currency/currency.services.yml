@@ -1,0 +1,28 @@
+services:
+  currency.event_dispatcher:
+    class: Drupal\currency\EventDispatcher
+    arguments: ['@event_dispatcher']
+  plugin.manager.currency.amount_formatter:
+    class: Drupal\currency\Plugin\Currency\AmountFormatter\AmountFormatterManager
+    arguments: ['@container.namespaces', '@cache.discovery', '@module_handler', '@config.factory']
+    tags:
+      - { name: plugin_manager_cache_clear}
+  plugin.manager.currency.exchange_rate_provider:
+    class: Drupal\currency\Plugin\Currency\ExchangeRateProvider\ExchangeRateProviderManager
+    arguments: ['@container.namespaces', '@cache.discovery', '@module_handler', '@class_resolver']
+    tags:
+      - { name: plugin_manager_cache_clear}
+  currency.exchange_rate_provider:
+    class: Drupal\currency\PluginBasedExchangeRateProvider
+    arguments: ['@plugin.manager.currency.exchange_rate_provider', '@config.factory']
+  currency.locale_resolver:
+    class: Drupal\currency\LocaleResolver
+    arguments: ['@entity_type.manager', '@language_manager', '@config.factory', '@currency.event_dispatcher']
+  currency.input:
+    class: Commercie\Currency\Input
+  currency.config_importer:
+    class: Drupal\currency\ConfigImporter
+    arguments: ['@module_handler', '@config.typed', '@entity_type.manager']
+  currency.form_helper:
+    class: Drupal\currency\FormHelper
+    arguments: ['@string_translation', '@entity_type.manager']

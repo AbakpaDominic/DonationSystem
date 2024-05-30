@@ -1,0 +1,10 @@
+currency_amount_formatter:
+  label: Amount formatter
+  plugin_manager_service_id: plugin.manager.currency.amount_formatter
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator
+  operations_provider_class: \Drupal\currency\Plugin\Currency\AmountFormatter\AmountFormatterOperationsProvider
+currency_exchange_rate_provider:
+  label: Exchange rate provider
+  plugin_manager_service_id: plugin.manager.currency.exchange_rate_provider
+  plugin_definition_decorator_class: \Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator
+  operations_provider_class: \Drupal\currency\Plugin\Currency\ExchangeRateProvider\ExchangeRateProviderOperationsProvider

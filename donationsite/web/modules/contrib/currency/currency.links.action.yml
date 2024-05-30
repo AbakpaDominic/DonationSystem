@@ -1,0 +1,27 @@
+currency.currency.add:
+  route_name: currency.currency.add
+  title: 'Add a custom currency'
+  appears_on:
+    - entity.currency.collection
+currency.currency.import:
+  route_name: currency.currency.import
+  title: 'Import a currency'
+  appears_on:
+    - entity.currency.collection
+  weight: -1
+currency.currency_locale.add:
+  route_name: currency.currency_locale.add
+  title: 'Add a currency locale'
+  appears_on:
+    - entity.currency_locale.collection
+currency.currency_locale.import:
+  route_name: currency.currency_locale.import
+  title: 'Import a currency locale'
+  appears_on:
+    - entity.currency_locale.collection
+  weight: -1
+currency.exchange_rate_provider.fixed_rates.add:
+  route_name: currency.exchange_rate_provider.fixed_rates.add
+  title: 'Add an exchange rate'
+  appears_on:
+    - currency.exchange_rate_provider.fixed_rates.overview

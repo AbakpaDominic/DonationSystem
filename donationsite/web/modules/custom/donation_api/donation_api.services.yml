@@ -1,0 +1,21 @@
+services:
+  logger.channel.donation_api:
+    class: Drupal\Core\Logger\LoggerChannel
+    arguments: ['donation_api']
+
+  controller.donation_api_webhook:
+    class: Drupal\donation_api\Controller\WebhookController
+    arguments: ['@request_stack', '@logger.factory', '@serializer', '@logger.channel.donation_api']
+
+  donation_api.email_utility:
+    class: Drupal\donation_api\Utility\EmailUtility
+    arguments: ['@plugin.manager.mail', '@language_manager']
+
+
+
+
+
+
+
+
+

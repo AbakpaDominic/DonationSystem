@@ -1,0 +1,4 @@
+locale: "mg_MG"
+pattern: "¤#,##0.00"
+decimalSeparator: ""
+groupingSeparator: ""

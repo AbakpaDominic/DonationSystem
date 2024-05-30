@@ -1,0 +1,12 @@
+name: Plugin Test Helper
+description: Supports Plugin tests.
+package: Testing
+type: module
+dependencies:
+  - plugin:plugin
+hidden: true
+
+# Information added by Drupal.org packaging script on 2024-05-01
+version: '8.x-2.12'
+project: 'plugin'
+datestamp: 1714567974

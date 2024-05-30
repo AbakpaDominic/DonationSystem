@@ -1,0 +1,16 @@
+currency_test.currency_amount_element:
+  path: '/currency_test-form-element-currency-amount/{minimum_amount}/{maximum_amount}/{currency_code}'
+  defaults:
+    _form: '\Drupal\currency_test\CurrencyAmountElement'
+    currency_code: ''
+  requirements:
+    _access: 'TRUE'
+
+currency_test.currency_sign_element:
+  path: '/currency_test-form-element-currency-sign/{currency_code}/{currency_sign}'
+  defaults:
+    _form: '\Drupal\currency_test\CurrencySignElement'
+    currency_code: ''
+    currency_sign: ''
+  requirements:
+    _access: 'TRUE'

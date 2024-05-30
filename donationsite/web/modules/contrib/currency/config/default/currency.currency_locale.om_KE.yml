@@ -1,0 +1,4 @@
+locale: "om_KE"
+pattern: "¤#,##0.00"
+decimalSeparator: "."
+groupingSeparator: ""

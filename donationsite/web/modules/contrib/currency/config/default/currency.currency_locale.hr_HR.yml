@@ -1,0 +1,4 @@
+locale: "hr_HR"
+pattern: "#,##0.00 ¤"
+decimalSeparator: ","
+groupingSeparator: "."

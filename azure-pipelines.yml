@@ -1,0 +1,76 @@
+trigger:
+  branches:
+    exclude:
+      - '*'
+
+pr:
+  branches:
+    include:
+      - '*'
+
+variables:
+  phpVersion: 8.3
+  snykServiceConnection: $(SNYK_SERVICE_CONNECTION)
+  snykProjectName: $(SNYK_PROJECT_NAME)
+  snykOrganizationId: $(SNYK_ORGANIZATION_ID)
+
+stages:
+- stage: Pull_Request_Validation
+  jobs:
+  - job: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - script: |
+        sudo update-alternatives --set php /usr/bin/php$(phpVersion)
+        sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
+        sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
+        sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
+        sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
+        php -version
+      displayName: 'Use PHP version $(phpVersion)'
+
+    - script: composer install --no-interaction --prefer-dist
+      displayName: 'composer install'
+
+  - job: SecurityScan
+    dependsOn: Build  # Run scan after build completes
+    condition: succeeded()  # Only run scan if build succeeds
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - script: |
+        sudo update-alternatives --set php /usr/bin/php$(phpVersion)
+        sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
+        sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
+        sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
+        sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
+        php -version
+      displayName: 'Use PHP version $(phpVersion)'
+
+    - script: composer install --no-interaction --prefer-dist
+      displayName: 'composer install'
+
+    - task: SnykSecurityScan@1
+      inputs:
+        serviceConnectionEndpoint: $(snykServiceConnection)
+        testType: 'app'
+        severityThreshold: 'medium'
+        monitorWhen: 'always'
+        failOnIssues: true
+        projectName: $(snykProjectName)
+        organization: $(snykOrganizationId)
+
+  - job: Test
+    dependsOn: SecurityScan
+    condition: succeeded()  # Only run tests if build succeeds
+    pool:
+      vmImage: ubuntu-latest 
+    steps:
+    - script: composer install --prefer-dist --no-dev  # Install dependencies (excluding dev dependencies)
+      displayName: 'Install dependencies (excluding dev)'
+    - script: |
+        composer require --dev phpunit/phpunit
+        php vendor/bin/phpunit
+      displayName: 'Run unit tests'
+

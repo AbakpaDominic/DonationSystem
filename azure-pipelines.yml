@@ -10,9 +10,6 @@ pr:
 
 variables:
   phpVersion: 8.3
-  snykServiceConnection: $(SNYK_SERVICE_CONNECTION)
-  snykProjectName: $(SNYK_PROJECT_NAME)
-  snykOrganizationId: $(SNYK_ORGANIZATION_ID)
 
 stages:
 - stage: Pull_Request_Validation
@@ -53,13 +50,13 @@ stages:
 
     - task: SnykSecurityScan@1
       inputs:
-        serviceConnectionEndpoint: $(snykServiceConnection)
+        serviceConnectionEndpoint: 'KgfServiceConnection'
         testType: 'app'
         severityThreshold: 'medium'
         monitorWhen: 'always'
         failOnIssues: true
-        projectName: $(snykProjectName)
-        organization: $(snykOrganizationId)
+        projectName: 'AbakpaDominic/DonationSystem'
+        organization: 'ca818e28-49d2-4fdf-a4fc-d5968c300514'  # Your organization ID
 
   - job: Test
     dependsOn: SecurityScan
@@ -73,4 +70,3 @@ stages:
         composer require --dev phpunit/phpunit
         php vendor/bin/phpunit
       displayName: 'Run unit tests'
-
